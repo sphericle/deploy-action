@@ -68,7 +68,7 @@ runs:
     - name: Restart project
       if: ${{ inputs.restart != 'false' }}
       run: |
-        cargo shuttle project restart \
+        cargo shuttle project restart --idle-minutes 0 \
         $(if [ "${{ inputs.name }}" != "" ]; then echo "--name ${{ inputs.name }}"; fi)
       working-directory: ${{ inputs.working-directory }}
       env:
